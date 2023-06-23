@@ -1,14 +1,14 @@
 export class Profil {
-    id!: Number;
+    id!: number;
 
-    firstName!: String;
-    lastName!: String;
-    birthday!: String;
+    firstName!: string;
+    lastName!: string;
+    birthday!: string;
 
-    imgProfil!: String;
+    imgProfil!: string;
 
-    mail!: String;
-    phone!: String;
+    mail!: string;
+    phone!: string;
 
-    status!: String;
+    status!: string;
 }
