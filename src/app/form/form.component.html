@@ -1,0 +1,35 @@
+<div class="main-form">
+    <div class="form-content">
+        <h2>Formulaire</h2>
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+            <label for="first-name">Prénom: </label>
+            <input id="first-name" type="text" formControlName="firstName" placeholder="Prénom"><br /><br />
+          
+            <label for="last-name">Nom: </label>
+            <input id="last-name" type="text" formControlName="lastName" placeholder="Nom"><br /><br />
+
+            <label for="birthday">Date de naissance: </label>
+            <input id="birthday" type="text" formControlName="birthday" placeholder="Date de naissance"><br /><br />
+          
+            <label for="imgProfil">Image de profil: </label>
+            <input id="imgProfil" type="text" formControlName="imgProfil" placeholder="monImage.jpg"><br /><br />
+
+            <label for="mail">E-mail: </label>
+            <input id="mail" type="text" formControlName="mail" placeholder="monEmail@monemail.com"><br /><br />
+          
+            <label for="phone">Téléphone: </label>
+            <input id="phone" type="text" formControlName="phone" placeholder="Téléphone"><br /><br />
+
+            <label for="status">Type de compte: </label>
+            <input id="status" type="text" formControlName="status" placeholder="provider ou customer"><br /><br />
+            
+            <p>Compléter le formulaire pour débloquer le bouton Submit. </p>
+            <button class="button" type="submit" (click)="goBack()" [disabled]="!profileForm.valid">Submit</button>
+            <button class="button" type="button" (click)="updateProfile()">Update</button>
+            <button class="button" type="button" (click)="goBack()">Retour</button>
+
+            <!-- <p>Form Status: {{ profileForm.status }}</p> -->
+        </form>
+    </div>
+</div>

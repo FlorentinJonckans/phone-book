@@ -1,0 +1,23 @@
+<div 
+    *ngIf="oneContact"
+    [ngClass]="oneContact.status === 'provider' ? 'provider' : 'customer'"
+>
+    <div class="main-card">
+        <div class="card-image">
+            <img [src]="oneContact.imgProfil" alt="" class="card-img">
+        </div>
+        <div class="card-content">
+            <p>Prénom: {{ oneContact.firstName }}</p>
+            <p>Nom: {{ oneContact.lastName }}</p><br /> 
+            <p>Status: {{ oneContact.status }}</p>
+        </div>
+    </div>
+    <div class="content-paragraph">
+        <!-- | date : 'yyyy-MM-dd' dans le cas ou la date est de type date -->
+        <p>Date: {{ oneContact.birthday }}</p><br />
+        <p>Mail: {{ oneContact.mail }}</p><br />
+        <p>Tél: {{ oneContact.phone }}</p><br />
+        
+    </div>
+    <button class="button" type="button" (click)="goBack()">Retour</button>
+</div>

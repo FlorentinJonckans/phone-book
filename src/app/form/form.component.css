@@ -1,0 +1,35 @@
+.main-form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 50px;
+    text-align: left;
+    background-color: rgb(255, 182, 255);
+    padding-bottom: 20px;
+    margin: auto;
+    border-radius: 25px;
+    border: 1px solid #111;
+}
+.main-form h2 {
+    text-align: center;
+}
+.main-form p {
+    font-style: italic;
+}
+.main-form input {
+    width: 100%;
+}
+.button{
+    border: none;
+    font-size: 16px;
+    color: #FFF;
+    padding: 8px 16px;
+    background-color: #708090;
+    border-radius: 6px;
+    margin: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.button:hover{
+    background: #586572;
+}

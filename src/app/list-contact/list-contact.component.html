@@ -1,0 +1,10 @@
+<div class="goToForm">
+   <p>Si vous voulez créer votre profil, cliquez sur : 
+      <button class="button" type="button" routerLink="/form">Créer votre profil</button>
+   </p>
+</div>
+<div class="main">
+   <div *ngFor="let profil of listContact">
+      <app-card [profil] = "profil"></app-card>
+   </div>
+</div>

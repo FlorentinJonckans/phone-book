@@ -1,0 +1,19 @@
+<div class="main-content">
+    <div class="card">
+        <div class="image-content">
+            <!-- faire condition si = customer, si = provider si rien -->
+            <span [ngClass]="{ provider : profil.status === 'customer' }" class="overlay"></span>
+            <div class="card-image">
+                <img [src]="profil.imgProfil" alt="" class="card-img">
+            </div>
+        </div>
+        <div class="card-content">
+            <h2 class="name">{{ profil.firstName }} {{ profil.lastName }}</h2>
+            <p class="description">
+                Tél: {{ profil.phone }}<br />
+                Mail: {{ profil.mail }}
+            </p>
+            <button class="button" routerLink="/contact/{{ profil.id }}">Voir plus ></button>
+        </div>
+    </div>
+</div>
