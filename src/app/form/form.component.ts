@@ -7,6 +7,7 @@ import { Validators } from '@angular/forms';
 import { Profil } from 'src/models/profil.model';
 
 import { ListContactService } from '../services/list-contact/list-contact.service';
+import { Observable, map } from 'rxjs';
 
 @Component({
   selector: 'app-form',
@@ -30,6 +31,8 @@ export class FormComponent {
   // });
 
   profileForm!: FormGroup;
+  contact!: Profil;
+  observableContactPreview !: Observable<Profil>;
 
   constructor(
     private location: Location,
@@ -40,6 +43,8 @@ export class FormComponent {
   }
 
   ngOnInit(): void {
+    this.contact = new Profil;
+
     // FormBuilder syntaxe
     this.profileForm = this.fb.group({
       firstName: ['', Validators.required],
@@ -50,6 +55,35 @@ export class FormComponent {
       phone: ['', Validators.required],
       status: ['', Validators.required]
     });
+
+    // this.contact.firstName = this.profileForm.get("firstName").valueChanges;
+    // this.contact.lastName = this.profileForm.get("lastName").valueChanges;
+    // this.contact.birthday = this.profileForm.get("birthday").valueChanges;
+    // this.contact.imgProfil = this.profileForm.get("imgProfil").valueChanges;
+    // this.contact.mail = this.profileForm.get("mail").valueChanges;
+    // this.contact.phone = this.profileForm.get("phone").valueChanges;
+    // this.contact.status = this.profileForm.get("status").valueChanges;
+
+    // Affiche dans le console.log les informations du formulaire en temps réel
+    this.profileForm.valueChanges.subscribe((selectedValue: any)  => {
+      console.log('form value changed');
+      console.log(selectedValue);
+    });
+
+    // Branche cet Observable aux changements de valeur du formulaire
+    this.observableContactPreview = this.profileForm.valueChanges.pipe(
+      map((formValue: any) => ({
+          ...formValue,
+          firstName: '',
+          lastName: '',
+          birthday: '',
+          imgProfil: '',
+          mail: '',
+          phone: '',
+          status: ''
+      }))
+  );
+
   }
 
   updateProfile() {    
