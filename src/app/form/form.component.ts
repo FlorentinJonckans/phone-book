@@ -32,7 +32,7 @@ export class FormComponent {
 
   profileForm!: FormGroup;
   contact!: Profil;
-  observableContactPreview !: Observable<Profil>;
+  observableContactPreview$ !: Observable<Profil>;
 
   constructor(
     private location: Location,
@@ -71,16 +71,16 @@ export class FormComponent {
     });
 
     // Branche cet Observable aux changements de valeur du formulaire
-    this.observableContactPreview = this.profileForm.valueChanges.pipe(
+    this.observableContactPreview$ = this.profileForm.valueChanges.pipe(
       map((formValue: any) => ({
           ...formValue,
-          firstName: '',
-          lastName: '',
-          birthday: '',
-          imgProfil: '',
-          mail: '',
-          phone: '',
-          status: ''
+          firstName: this.profileForm.value.firstName,
+          lastName: this.profileForm.value.lastName,
+          birthday: this.profileForm.value.birthday,
+          imgProfil: this.profileForm.value.imgProfil,
+          mail: this.profileForm.value.mail,
+          phone: this.profileForm.value.phone,
+          status: this.profileForm.value.status
       }))
   );
 

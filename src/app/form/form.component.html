@@ -34,7 +34,7 @@
             </form>
         </div>
     </div>
-    <div class="app-card" *ngIf="observableContactPreview | async as contact">
-        <app-card></app-card>
+    <div class="app-card" *ngIf="observableContactPreview$ | async as contact">
+        <app-card [profil]="contact"></app-card>
     </div>
 </div>
