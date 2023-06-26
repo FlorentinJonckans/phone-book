@@ -102,7 +102,12 @@ export class ListContactService {
     }
   ];
 
-  constructor() { }
+  // commentaire en dessous : si on n'utilise pas le routerLink dans les balise html
+  constructor(/** private router: Router **/) { 
+    /**
+     * this.router.navigateByUrl("monURL"+id);
+     */
+  }
 
   // How to manipulate services, observables, sync/async
   // https://angular.io/tutorial/tour-of-heroes/toh-pt4
